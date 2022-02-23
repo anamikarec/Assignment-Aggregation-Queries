@@ -4,15 +4,17 @@ const app =express();
 const cors= require('cors');
 const connect = require('./app/config/db');
 
-const employeeRoute = require("./app/routes/employee.route");
-const expensesRoute = require("./app/routes/expenses.route");
+const userRoute = require("./app/routes/users.route");
+const tweetRoute = require("./app/routes/tweets.route");
 
 const PORT=5001;
 
 app.use(cors());
 app.use(express.json())
 
-app.use("/expenses",expensesRoute);
+
+app.use("/users",userRoute);
+app.use("/tweets",tweetRoute);
 
 const start= async ()=>{
     await connect();
